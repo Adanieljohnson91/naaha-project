@@ -1,0 +1,15 @@
+.background-image-jumbo {
+    background-image: url("../../assets/images/Reevet-background.jpg");
+}
+.fixed {
+    position: fixed;
+}
+.move-links-up{
+    margin-top: -1em;
+}
+.image-size {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px;
+}

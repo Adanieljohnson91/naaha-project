@@ -1,0 +1,27 @@
+.border {
+   padding: 1em;
+    border: solid black 1px;
+    box-shadow: 0px 0px 10px;
+    border-radius: 5%;
+    justify-content: right;
+    background-color: whitesmoke;
+    margin-top: -2em;
+    
+}
+.border:hover {
+    box-shadow: 0px 0px 20px;
+}
+.background {
+    background-image: url("../../assets/images/Reevet-background.jpg");
+}
+.full-screen {
+    
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+     padding: 20em;
+}

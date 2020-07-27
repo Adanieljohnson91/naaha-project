@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Anthony Johnson",
+      "username": "Anthony",
+      "password": "password",
+      "email": "dan.johnson1022@gmail.com",
+      "phone": "4242490863"
+    },
+    {
+      "username": "TestRun",
+      "password": "R0ckst271!",
+      "full_name": "Anthony",
+      "email": "Dan.johnson1022@gmail.com",
+      "phone": "9312188140",
+      "id": 2
+    },
+    {
+      "username": "Jake94",
+      "password": "password",
+      "full_name": "Jake",
+      "email": "Jake@gmail.com",
+      "phone": "9223221212",
+      "id": 3
+    },
+    {
+      "username": "Jessej123",
+      "password": "password",
+      "full_name": "Jesse James",
+      "email": "email",
+      "phone": "9212033939",
+      "id": 4
+    },
+    {
+      "username": "Username",
+      "password": "password",
+      "full_name": "Danny Johnson",
+      "email": "dan.johnson1022@gmail.com",
+      "phone": "4242490863",
+      "id": 5
+    },
+    {
+      "username": "Anthony123",
+      "password": "password",
+      "full_name": "Anthony",
+      "email": "dan@dan.com",
+      "phone": "4242490863",
+      "id": 6
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "firstname": "Jake",
+      "lastname": "Brown",
+      "phone": "4436054707",
+      "address": "123 Main St",
+      "userId": 1,
+      "setup": false
+    },
+    {
+      "firstname": "Anthony",
+      "lastname": "Johnson",
+      "phone": "3109999943",
+      "address": "123 Main Street",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Zorilla",
+      "phone": "3102320987",
+      "address": "123 Blue Ave",
+      "userId": 5,
+      "setup": false,
+      "id": 3
+    },
+    {
+      "firstname": "Anthony",
+      "lastname": "Johnson",
+      "phone": "9999999999",
+      "address": "123 Main St",
+      "userId": 5,
+      "setup": false,
+      "id": 4
+    },
+    {
+      "firstname": "Jake",
+      "lastname": "Brown",
+      "phone": "9999999999",
+      "address": "123 Main St",
+      "userId": 5,
+      "setup": false,
+      "id": 5
+    },
+    {
+      "firstname": "Anthony",
+      "lastname": "Johnson",
+      "phone": "9312188140",
+      "address": "1226 2nd St",
+      "userId": 5,
+      "id": 6
+    },
+    {
+      "firstname": "Ashley",
+      "lastname": "Johnson",
+      "phone": "4242490863",
+      "address": "123 Main St",
+      "userId": 1,
+      "id": 7
+    }
+  ],
+  "events": [
+    {
+      "name": "Anthony's Birthday",
+      "date": "2020-08-23",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "name": "Anthony's Birthday2",
+      "userId": 1,
+      "date": "2020-08-23",
+      "id": 2
+    },
+    {
+      "name": "Jakes Birthday",
+      "userId": 1,
+      "date": "2020-07-01",
+      "id": 3
+    },
+    {
+      "name": "New Event",
+      "userId": 5,
+      "date": "2020-07-27",
+      "id": 5
+    },
+    {
+      "name": "Party for Neice",
+      "userId": 5,
+      "date": "2020-08-01",
+      "id": 6
+    },
+    {
+      "name": "Tearing the CLub Up",
+      "userId": 5,
+      "date": "2020-07-26",
+      "id": 7
+    }
+  ],
+  "contactEvent": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "eventId": 1
+    }
+  ],
+  "defaultEvent": [
+    {
+      "id": 1,
+      "name": "Mothers Day",
+      "date": "2020-12-25"
+    }
+  ],
+  "interest": [
+    {
+      "id": 1,
+      "name": "boats",
+      "contactId": 1
+    }
+  ]
+}
