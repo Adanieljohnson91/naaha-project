@@ -34,7 +34,7 @@ const Contacts = () => {
     }, [])
     return (
         <>
-            <div className="page-center">
+            <div className="page-center body">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
                 <Jumbotron 
                 name="Contacts" 
@@ -48,9 +48,9 @@ const Contacts = () => {
                 name2="Buckets"/>
                 <ToolBar />
                 <ModalAddButton form={<ContactFrom getContacts={getContacts}/>} />
-                <div className="bottom-section">
-                    <Container fluid={true}  >
-                        <div className="container-background flex-events">
+                <div className="bottom-section container-body">
+                    <Container className="container-body" fluid={true}  >
+                        <div className="container-background flex-events ">
                           {contacts.contacts}  
                         </div>
                     </Container>

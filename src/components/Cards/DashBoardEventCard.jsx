@@ -15,12 +15,12 @@ const EventCard = (props) => {
             <div className="card-custom card-shadows" style={{ width: "18rem" }}>
 
                 <div className="card-body-custom ">
-                    <h5 className="card-title">{props.event.name || "Bob"}</h5>
-                    <p className="card-text">
-                        {props.event.date || "NA"}</p>
+                <img className="image-size" src="https://g.foolcdn.com/editorial/images/578933/square01.jpg"/>
+                    <h5 className="card-title mt-2">{props.event.name || "Bob"} {props.event.date || "NA"}</h5>
+                   
                     <Link to={url} className="btn btn-primary">
                         Go somewhere </Link>
-                    <button type="button" onClick={handleDelete} >Delete Me</button>
+                    <button type="button" className="btn btn-danger ml-1" onClick={handleDelete} >Delete Me</button>
                 </div>
             </div>
         </>

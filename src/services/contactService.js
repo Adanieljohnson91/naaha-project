@@ -51,5 +51,11 @@ export default {
         .then(response)
         .then(responseSuccess)
         .catch(errorResponse)
+    },
+    getContactEvents(id){
+        return fetch(`http://localhost:5002/contactEvent?contactId=${id}&_expand=event`)
+        .then(response)
+        .then(responseSuccess)
+        .catch(errorResponse)
     }
 }

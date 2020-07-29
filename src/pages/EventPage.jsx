@@ -31,7 +31,7 @@ const EventPage = (props) => {
     }, [])
     return (
         <>
-            <div className="page-center">
+            <div className="page-center ">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
                 <JumbotronEvent 
                 getEvent={getEvent}
@@ -46,7 +46,7 @@ const EventPage = (props) => {
                 name2="Buckets"/>
                     <ToolBar />
                 <h1>Events</h1>
-                <div className="bottom-section">
+                <div className="bottom-section body">
                     
                     <Container fluid={true}  >
                         <div className="container-background flex-events">

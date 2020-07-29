@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
     },
     paper: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: "green",
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
@@ -48,9 +48,11 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 const useStyle = makeStyles((theme) => ({
     root: {
       '& > *': {
-        marginLeft: "49.5%",
+        marginLeft: "50.5%",
         width: "175px",
-        height:"175px"
+        height:"70px",
+        backgroundImage: "linear-gradient(to right, green , yellow)",
+        borderRadius: "50%"
       },
     },
     extendedIcon: {
@@ -79,9 +81,9 @@ const ModalAddButton = (props) => {
         <>
         <div>
          <div className={classe.root}> 
-     <Fab color="#e8f5e9" onClick={handleOpen} aria-label="add">
+     <button color="#e8f5e9" onClick={handleOpen} aria-label="add">
         <AddIcon />
-      </Fab>
+      </button>
       </div> 
       <Modal
         aria-labelledby="spring-modal-title"
@@ -97,7 +99,7 @@ const ModalAddButton = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-       {React.cloneElement(props.form, {handleClose: handleClose})}
+       {React.cloneElement(props.form, props.getContactsEvents, {handleClose: handleClose})}
           </div>
         </Fade>
       </Modal>

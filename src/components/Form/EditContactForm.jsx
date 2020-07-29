@@ -16,6 +16,7 @@ const EditContactForm = (props) =>{
      const handleSubmit = async () =>{
       await  contactService.updateContact(form, props.contact.id)
       await props.getContact();
+      
       props.handleClose();
     }
 

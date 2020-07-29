@@ -63,7 +63,7 @@ const DashBoard = () => {
     })(ToolBar);
     return (
         <>
-            <div className="page-center">
+            <div className="page-center body">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader /></ToolBarZero>
 
                 <Jumbotron 
@@ -77,10 +77,10 @@ const DashBoard = () => {
                 link2="/buckets"
                 name2="Buckets" />
 
-                <div className="top-section scrolling-wrapper">
+                <div className="top-section scrolling-wrapper container-body">
                     <ToolBar />
                     <ContainerStyle fluid={true}  >
-                        <div className="container-background ">
+                        <div className="container-background card-padding ">
 
                             {state.contactCards}
 

@@ -1,5 +1,7 @@
 .background-image-jumbo {
-    background-image: url("../../assets/images/Reevet-background.jpg");
+    background-image: url("../../assets/images/bluepink.jpg");
+    height: auto;
+    width: auto;
 }
 .fixed {
     position: fixed;
@@ -12,4 +14,7 @@
     height: 300px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px;
+}
+.text {
+    color: rgb(250, 250, 250);
 }

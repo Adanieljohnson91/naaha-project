@@ -46,13 +46,15 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
    minWidth: 500,
    width: "95%",
     position: 'absolute',
-    minHeight: 400,
+    minHeight: 500,
+    maxHeight:500,
     display: "inline",
-    scrollbar: "hidden"
+    overflow: "scroll",
+     scrollbar: "hidden",
+    backgroundColor: "rgb(12, 11, 11)"
   },
   fab: {
     position: 'absolute',

@@ -51,5 +51,20 @@ export default {
         .then(response)
         .then(responseSuccess)
         .catch(errorResponse)
+    },
+    contactEvent(data){
+        return fetch(`http://localhost:5002/contactEvent`, {
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+        })
+    },
+    getDefaultEvents(){
+        return fetch('http://localhost:5002/defaultEvents')
+        .then(response)
+        .then(responseSuccess)
+        .catch(errorResponse)
     }
 }

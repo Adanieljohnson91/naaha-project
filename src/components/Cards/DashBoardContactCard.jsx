@@ -15,12 +15,13 @@ const ContactCard = (props) =>{
         <div className="card-custom card-shadows" style={{ width: "18rem" }}>
 
 <div className="card-body-custom">
-    <h5 className="card-title">{props.contact.firstname || "Bob"}</h5>
+    <img className="image-size" src="https://g.foolcdn.com/editorial/images/578933/square01.jpg"/>
+    <h5 className="card-title"></h5>
     <p className="card-text">
-       {props.contact.lastname}</p>
+      {props.contact.firstname || "Bob"} {props.contact.lastname}</p>
     <Link to={contactURL} className="btn btn-primary">
         Contact Info </Link>
-        <button type="button" onClick={handleDelete} >Delete Me</button>
+        <button type="button" className="btn btn-danger ml-1" onClick={handleDelete} >Delete Me</button>
 </div>
 </div>
         </>

@@ -11,7 +11,8 @@ import { withRouter } from 'react-router-dom';
  const useStyles = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
-          opacity: 0.8
+          opacity: .9,
+          backgroundColor:"#012840"
         },
         menuButton: {
           marginRight: theme.spacing(2),
@@ -36,10 +37,10 @@ const UserHeader = (props) =>{
       <AppBar position="fixed" >
         <Toolbar className={classes.root}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          
           </IconButton>
           <Typography variant="h5" className={classes.title}>
-            Welcome
+            Naaha
           </Typography>
           <Button color="inherit" type="button" onClick={handleLogout}>Log out</Button>
         </Toolbar>

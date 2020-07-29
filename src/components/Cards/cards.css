@@ -2,4 +2,16 @@
     border: black solid 1px;
     border-radius: 3%;
     box-shadow: 0px 0px 10px;
+    padding-left: 5px;
+}
+.card-shadows:hover{
+    box-shadow: 0px 0px 20px;
+}
+.drop-zone {
+    height: 100px;
+    width: 100px;
+}
+.image-size {
+    height:100px;
+    width:100px
 }

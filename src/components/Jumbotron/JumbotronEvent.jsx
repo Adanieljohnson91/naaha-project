@@ -8,7 +8,7 @@ const JumbotronEvent = (props) => {
 
     return (
         <>
-            <div>
+            <div className="text">
                 Copy
   <div className="jumbotron-custom background-image-jumbo" >
 
@@ -20,7 +20,7 @@ const JumbotronEvent = (props) => {
                         <Link to={props.link2} className="btn btn-primary btn-lg ml-1 mr-1 w-25" href="#" role="button">
                             {props.name2}</Link>
                     </p>
-                    <img className="image-size" src="https://favim.com/orig/201109/07/city-lights-new-years-party-times-square-Favim.com-139269.jpg" alt />
+                    <img className="image-size" src="https://g.foolcdn.com/editorial/images/578933/square01.jpg" alt />
                     <h1 className="display-4">{props.name}</h1>
                     
                     <hr className="my-4" />

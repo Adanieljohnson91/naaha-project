@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Authentication from "../auth/Authenticaion";
 import UserHeader from "../components/Header/UserHeader"
 import { Container } from '@material-ui/core'
@@ -8,6 +8,9 @@ import "./pages.css/pages.css"
 import ToolBar from "@material-ui/core/Toolbar";
 import Zoom from "../components/ScrollUp/Zoom";
 import contactServices from "../services/contactService";
+import ContactEventCard from "../components/Cards/ContactEventsCard";
+import ModalAddButton from "../components/Form/ModalAddButton";
+import ContactEventsForm from "../components/Form/ContactEventsForm";
 
 
 const ContactPage = (props) => {
@@ -16,42 +19,60 @@ const ContactPage = (props) => {
         padding: 0
     })(ToolBar)
     const [contacts, setContact] = useState({
-        contacts:{}
+        contacts: {},
+        events: []
     })
 
 
-    const getContact = async () =>{
-     let res = await contactServices.getContact(props.match.params.id);
-     await setContact({...contacts, contacts: res})
-       return;
+    const getContact = async () => {
+        let res = await contactServices.getContact(props.match.params.id);
+        console.log("res", res)
+        await setContact((prevState) => {
+            return {
+                ...prevState,
+                contacts: res
+            }
+        })
+        return;
     }
-    useEffect(()=>{
+    const getContactsEvents = async () => {
+        let res = await contactServices.getContactEvents(props.match.params.id)
+        console.log(res);
+        setContact((prevState) =>{ 
+          return { ...prevState, 
+            events: res.map((event) => <ContactEventCard event={event.event}/>)
+        } 
+        })
+    }
+    useEffect(() => {
         getContact();
+        getContactsEvents();
     }, [])
     return (
         <>
-            <div className="page-center">
-                <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
-                <JumbotronContact 
-                contact={contacts.contacts}
-                getContact={getContact}
-                firstname={contacts.contacts.firstname} 
-                lastname={contacts.contacts.lastname}
-                address={contacts.contacts.address} 
-                phone={contacts.contacts.phone} 
-                link0="/dashboard"
-                name0="Dashboard"
-                link1="/events"
-                name1="Events"
-                link2="/buckets"
-                name2="Buckets"/>
-                    <ToolBar />
-                <h1>Events</h1>
-                <div className="bottom-section">
-                    
+            <div className="page-center body">
+                <ToolBarZero id="back-to-top-anchor">   <UserHeader /></ToolBarZero>
+                <JumbotronContact
+                    contact={contacts.contacts}
+                    getContact={getContact}
+                    firstname={contacts.contacts.firstname}
+                    lastname={contacts.contacts.lastname}
+                    address={contacts.contacts.address}
+                    phone={contacts.contacts.phone}
+                    link0="/dashboard"
+                    name0="Dashboard"
+                    link1="/events"
+                    name1="Events"
+                    link2="/buckets"
+                    name2="Buckets" />
+                <ToolBar />
+                <ModalAddButton form={<ContactEventsForm id={props.match.params.id} getContactsEvents={getContactsEvents}/>}/>
+    
+                <div className="bottom-section container-body">
+
                     <Container fluid={true}  >
                         <div className="container-background flex-events">
-                          {/* {contacts.contacts}   */}
+                            {contacts.events.lenght <= 0 ? "Less Than" : contacts.events}
                         </div>
 
                     </Container>

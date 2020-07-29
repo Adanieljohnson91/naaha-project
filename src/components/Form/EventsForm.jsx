@@ -12,7 +12,8 @@ const EventsForm = (props) =>{
         setForm({...form, [e.target.name]:e.target.value})
     }
      const handleSubmit = async () =>{
-      await  eventService.addEvent(form)
+      await eventService.addEvent(form);
+      
       await props.getEvents();
       props.handleClose();
     }
