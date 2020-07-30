@@ -25,8 +25,8 @@ app.use(cors());
 
 app.post('/get', (req,res)=>{
   res.send(req.body);
-  console.log(req)
-  schedule.setSchedule("1-7", undefined, "4-23", undefined, undefined, undefined, "Testing" )
+  console.log(req.body)
+  schedule.setSchedule("1-7", undefined, "4-23", undefined, undefined, undefined, "res.body.message" )
 })
 
 // app.get('/api/greeting', (req, res) => {
