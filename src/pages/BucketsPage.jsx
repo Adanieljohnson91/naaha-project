@@ -11,6 +11,7 @@ import contactService from "../services/contactService";
 import eventService from "../services/eventService";
 import DropZone from "../components/Cards/DropZone";
 import DragContact from "../components/Cards/DragContact";
+import "../components/Cards/cards.css";
 
 
 const Buckets = () => {
@@ -31,7 +32,7 @@ const Buckets = () => {
                   return {
                       ...prevState,
                       contacts: result,
-                      drag: result.map(contact=><DragContact contact={contact}/>)
+                      drag: result.map(contact=><DragContact key={contact.id} contact={contact}/>)
                   }
               })
             }
@@ -41,9 +42,18 @@ const Buckets = () => {
                     return {
                         ...prevState,
                         events: result,
-                        drop: result.map(event => <DropZone event={event}/>)
+                        drop: result.map(event => <DropZone key={event.id} event={event} shift={shift}/>)
                     }
                 })
+            }
+            const shift = () =>{
+               setState(prevState=>{
+                   prevState.contacts.pop();
+                   return {
+                    ...prevState,
+                    drag : prevState.contacts.map(contact=><DragContact key={contact.id} contact={contact}/>)
+                   }
+               })
             }
             useEffect(()=>{
                 getContacts();
@@ -67,11 +77,11 @@ const Buckets = () => {
                 <ToolBar />
         
                  
-                        <div className="container-background flex-events top-section">
-                       <div className="position">
+                        <div className="container-background flex-events bucket">
+                       <div className="position stack">
                        {state.drop}    
                        </div>
-                       <div className="position">
+                       <div className="position stack2">
                          {state.drag}   
                        </div>
                  

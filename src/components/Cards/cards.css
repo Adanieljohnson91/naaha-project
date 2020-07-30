@@ -8,10 +8,24 @@
     box-shadow: 0px 0px 20px;
 }
 .drop-zone {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }
 .image-size {
     height:100px;
     width:100px
+}
+.stack {
+    display: grid
+}
+.stack > * {
+    grid-row: 1;
+    grid-column: 1;
+}
+.stack2 {
+    display: grid
+}
+.stack2 > * {
+    grid-row: 1;
+    grid-column: 1;
 }

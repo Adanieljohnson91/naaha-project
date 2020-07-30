@@ -8,10 +8,11 @@ const DropZone = (props) =>{
     }
     const drop = e =>{
         e.preventDefault();
-       let data = e.dataTransfer.getData('text');
-       console.log("data", JSON.parse(data));
+       let data = JSON.parse(e.dataTransfer.getData('text'));
+       data.event = props.event;
+       console.log(data);
         console.log("DROPPED")
-       
+       props.shift();
         // dataConverter(data);
         // function dataConverter(data){
         //     console.log(data);
@@ -22,7 +23,7 @@ const DropZone = (props) =>{
 
     return (
         <>
-       <div onDragOver={onDragOver} onDrop={drop}>
+       <div onDragOver={onDragOver} onDrop={drop} className="drop-zone stack2">
        <div className="card">
   <img className="card-img-top" src="https://media-exp1.licdn.com/dms/image/C560BAQG-vLQJr3J3zg/company-logo_200_200/0?e=2159024400&v=beta&t=cXNxHCDmX7A_e_LGk75XIbL-eVc7VYdHQfSFH39r3Qo" alt="Card image cap" />
   <div className="card-body">

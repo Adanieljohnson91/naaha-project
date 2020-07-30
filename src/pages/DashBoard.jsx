@@ -12,6 +12,7 @@ import eventService from '../services/eventService';
 import EventCard from "../components/Cards/DashBoardEventCard";
 import contactService from '../services/contactService';
 import ContactCard from "../components/Cards/DashBoardContactCard";
+//import ScheduleButton from '../components/TestComponents/ButtonSchedule';
 
 const DashBoard = () => {
     const id = JSON.parse(window.sessionStorage.credentials).id
@@ -79,6 +80,7 @@ const DashBoard = () => {
 
                 <div className="top-section scrolling-wrapper container-body">
                     <ToolBar />
+                    {/* <ScheduleButton/> */}
                     <ContainerStyle fluid={true}  >
                         <div className="container-background card-padding ">
 
