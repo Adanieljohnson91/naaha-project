@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Authentication from "../auth/Authenticaion";
 import UserHeader from "../components/Header/UserHeader"
-import { Container } from '@material-ui/core'
 import { withStyles } from "@material-ui/core";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import "./pages.css/pages.css"
@@ -16,76 +15,136 @@ import "../components/Cards/cards.css";
 
 const Buckets = () => {
     const id = JSON.parse(window.sessionStorage.credentials).id
+    let j;
     const ToolBarZero = withStyles({
         margin: 0,
         padding: 0
     })(ToolBar)
     const [state, setState] = useState({
-                contacts:[],
-                events:[],
-                drag:[],
-                drop:[]
-            })
-            const getContacts = async () =>{
-              let result = await contactService.getContacts(id);
-              setState((prevState)=>{
-                  return {
-                      ...prevState,
-                      contacts: result,
-                      drag: result.map(contact=><DragContact key={contact.id} contact={contact}/>)
-                  }
-              })
+        contacts: [],
+        events: [],
+        drag: [],
+        drop: [],
+        default: []
+    })
+    const getContacts = async () => {
+        let result = await contactService.getContacts(id);
+        let ev = await eventService.getDefaultEvents();
+
+
+        for (let i = 0; i < result.length; i++) {
+            let arr = await eventsSorter(result[i], ev);
+
+            result[i].events = arr;
+        }
+        console.log(result, "RESULT")
+        result = await checkEvents(result)
+        j = result.length - 1;
+        console.log(result, "result")
+        if (result.length === 0) return;
+        setState((prevState) => {
+            return {
+                ...prevState,
+                contacts: result,
+                default: ev,
+                events: result[j].events,
+                drag: result.map(contact => <DragContact key={contact.id} contact={contact} />),
+                drop: result[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
             }
-            const getDefaultEvents = async () =>{
-                let result = await eventService.getDefaultEvents();
-                setState((prevState)=>{
+        })
+    }
+    const checkEvents = (result) => {
+        let arr = []
+        for (let i = result.length - 1; i >= 0; i--) {
+            if (result[i].events.length !== 0) {
+                arr.push(result[i])
+            }
+        }
+        return arr;
+    }
+    // RETURNING AN OBJECT HOLDING Contacts Events
+    const createEventsObject = async (contact) => {
+        let result = await contactService.getContactEvents(contact.id)
+        let events = {}
+        for (let i = 0; i < result.length; i++) {
+            console.log(result[i].event.name)
+            events[result[i].event.name] = true;
+        }
+        return events;
+    }
+    //COMPARES CONTACTS EVENT OBJECT WITH ALL EVENTS; PUSHES BACK ARRAY OF UNASSIGNED EVENTS
+    const eventsSorter = async (contact, events) => {
+        //Getting current Contacts events
+        let obj = await createEventsObject(contact)
+        let arr = []
+        console.log(obj, events)
+        for (let i = 0; i < events.length; i++) {
+            if (obj[events[i].name] === undefined) {
+                arr.push(events[i])
+            }
+        }
+        return arr;
+    }
+    //ON DROP EVENTS ARE SHIFTED, ONCE THE LAST ONE HAS BEEN ASSIGNED NEXT CONTACT APPEARS
+    const shiftEvents = () => {
+
+        setState((prevState) => {
+            if (prevState.contacts.events === undefined) {
+                if (prevState.events.length <= 1) {
+                    j--;
+                    console.log(prevState)
+                    prevState.contacts.pop();
+                    if (prevState.contacts.length === 0)return;
+                    console.log("Zero Events");
                     return {
                         ...prevState,
-                        events: result,
-                        drop: result.map(event => <DropZone key={event.id} event={event} shift={shift}/>)
+                        contacts: prevState.contacts,
+                        events: prevState.contacts[j].events,
+                        drag: prevState.contacts.map(contact => <DragContact key={contact.id} contact={contact} />),
+                        drop: prevState.contacts[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
                     }
-                })
+                } else {
+                    console.log(prevState, "EVENTS", prevState.events)
+                    prevState.events.pop();
+                    return {
+                        ...prevState,
+                        drop: prevState.events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
+                    }
+                }
             }
-            const shift = () =>{
-               setState(prevState=>{
-                   prevState.contacts.pop();
-                   return {
-                    ...prevState,
-                    drag : prevState.contacts.map(contact=><DragContact key={contact.id} contact={contact}/>)
-                   }
-               })
-            }
-            useEffect(()=>{
-                getContacts();
-                getDefaultEvents();
-            }, [])
-        
+            return;
+        })
+    }
+    useEffect(() => {
+        getContacts();
+    }, [])
+
     return (
         <>
             <div className="page-center body">
-                <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
-                <Jumbotron 
-                name="Buckets" 
-                user="Anthony"
-                purpose="Drag and Drop Contacts, Create Events "  
-                link0="/dashboard"
-                name0="Dashboard"
-                link1="/events"
-                name1="Events"
-                link2="/contacts"
-                name2="Contacts"/>
+                <ToolBarZero id="back-to-top-anchor">   <UserHeader /></ToolBarZero>
+                <Jumbotron
+                    name="Buckets"
+                    user="Anthony"
+                    purpose="Drag and Drop Contacts, Create Events "
+                    link0="/dashboard"
+                    name0="Dashboard"
+                    link1="/events"
+                    name1="Events"
+                    link2="/contacts"
+                    name2="Contacts" />
                 <ToolBar />
-        
-                 
-                        <div className="container-background flex-events bucket">
-                       <div className="position stack">
-                       {state.drop}    
-                       </div>
-                       <div className="position stack2">
-                         {state.drag}   
-                       </div>
-                 
-                  
+
+
+                <div className="container-background flex-events bucket">
+                    <div className="position stack">
+                        {state !== undefined ? state.drop : "NUll"}
+                    </div>
+                    <div className="position stack2">
+                        {state !== undefined ? state.drag : "Null"}
+                    </div>
+
+
                     <Zoom />
                 </div>
             </div>

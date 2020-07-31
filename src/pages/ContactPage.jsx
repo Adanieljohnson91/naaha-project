@@ -11,6 +11,7 @@ import contactServices from "../services/contactService";
 import ContactEventCard from "../components/Cards/ContactEventsCard";
 import ModalAddButton from "../components/Form/ModalAddButton";
 import ContactEventsForm from "../components/Form/ContactEventsForm";
+import interestService from "../services/interestService";
 
 
 const ContactPage = (props) => {
@@ -20,17 +21,20 @@ const ContactPage = (props) => {
     })(ToolBar)
     const [contacts, setContact] = useState({
         contacts: {},
-        events: []
+        events: [],
+        interests:[]
     })
 
 
     const getContact = async () => {
         let res = await contactServices.getContact(props.match.params.id);
+        let interests = await interestService.getInterests(props.match.params.id)
         console.log("res", res)
         await setContact((prevState) => {
             return {
                 ...prevState,
-                contacts: res
+                contacts: res,
+                interests
             }
         })
         return;

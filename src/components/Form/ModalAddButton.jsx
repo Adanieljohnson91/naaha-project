@@ -99,7 +99,7 @@ const ModalAddButton = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-       {React.cloneElement(props.form, props.getContactsEvents, {handleClose: handleClose})}
+       {React.cloneElement(props.form,  {handleClose: handleClose, getContactsEvents: props.getContactsEvents})}
           </div>
         </Fade>
       </Modal>

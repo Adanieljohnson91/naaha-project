@@ -1,0 +1,8 @@
+//Bucket System
+
+Pull down our contacts
+We are going to create our contact Deck
+Based on the contacts events we will populate
+a list of events the contact has not been
+conntected to, that using those events we 
+will mapp our events and create our events deck 

@@ -1,32 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import contactService from '../../services/contactService';
+import React from 'react';
 
 const DragContact = (props) =>{
-    const [userEvents, setUserEvents] = useState([]);
     const dragStartHandler = (e) =>{
       console.log(props.contact);
       //  e.preventDefault();
-        let data = {
-            "userId":1
-        }
         //move and link also valid drop effects
         e.dataTransfer.dropEffect = "move";
 
         e.dataTransfer.setData("text", JSON.stringify(props.contact));
     }
-    const createEventsObject = async () =>{
-        let result = await contactService.getContactEvents(props.contact.id)
-        console.log(result)
-        let events = {}
-        for(let i = 0; i < result.length; i++){
-          console.log(result[i].event.name)
-          events[result[i].event.name] = true;
-        }
-        console.log(events)
-    }
-    useEffect(()=>{
-      createEventsObject();
-    })
     
 
 
