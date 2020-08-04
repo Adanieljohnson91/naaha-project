@@ -12,28 +12,62 @@ import eventService from '../services/eventService';
 import EventCard from "../components/Cards/DashBoardEventCard";
 import contactService from '../services/contactService';
 import ContactCard from "../components/Cards/DashBoardContactCard";
+import "../components/Organizer/organizer.css"
 //import ScheduleButton from '../components/TestComponents/ButtonSchedule';
 
 const DashBoard = () => {
     const id = JSON.parse(window.sessionStorage.credentials).id
     const [state, setState] = useState({
         eventCards:[],
-        contactCards:[]
+        contactCards:[],
+        thirty:[],
+        sixty:[],
+        ninety:[]
     })
-
+const username = JSON.parse(window.sessionStorage.credentials).full_name
 
     const getEvents = async () =>{
         let res = await eventService.getEvents(id);
+        if(res === undefined) return;
+        let notRes = await sortEvents(res) 
         setState((prevState)=>{
                         return{
                             ...prevState, 
-                            eventCards: res.map(event=><EventCard key={event.id} event={event} getEvents={getEvents}/>)}
-                    })
+                            eventCards: res.map(event=><EventCard  key={event.id} event={event} getEvents={getEvents}/>),
+                            event: res,
+                            thirty:notRes[0].map(event=><EventCard className="rows" key={event.id} event={event} getEvents={getEvents}/>),
+                            sixty:notRes[1].map(event=><EventCard key={event.id} event={event} getEvents={getEvents}/>),
+                            ninety:notRes[2].map(event=><EventCard key={event.id} event={event} getEvents={getEvents}/>)
+         }
+        })
        
        
     }
+  
+
+    const sortEvents =(events) =>{
+        if(events === undefined) return
+        let [thirty, sixty, ninety] = [[], [], []];
+        let date = new Date().toISOString().split('T')[0];
+        console.log(date, "DATE")
+        for(let i = 0; i < events.length; i++){
+            let diff = Math.round((new Date(events[i].date) - new Date(date))/(1000*60*60*24))
+            console.log(diff, "DIFFFFF")
+            if(diff <90 && diff > 60){
+                ninety.push(events[i])
+            }else if( diff < 60 && diff > 30){
+                sixty.push(events[i])
+            }else if( diff < 30){
+                thirty.push(events[i])
+            }
+        }
+        console.log([thirty, sixty, ninety], "Thirty Sixty Ninety")
+        return [thirty, sixty, ninety]
+    }
     const getContacts = async() =>{ 
         let res = await contactService.getContacts(id);
+        console.log(res, "RESSSSS")
+        if(res === undefined) return;
         setState((prevState)=>{
            return{
                 ...prevState, contactCards: res.map(event=><ContactCard key={event.id} contact={event} getContacts={getContacts}/>)
@@ -69,7 +103,7 @@ const DashBoard = () => {
 
                 <Jumbotron 
                 name="Dashboard" 
-                user="Anthony" 
+                user={username || ""}
                 purpose="View your current contacts and upcoming events below"
                 link0="/contacts"
                 name0="Contacts"
@@ -90,7 +124,7 @@ const DashBoard = () => {
                     </ContainerStyle>
                 </div>
                 <div className="bottom-section">
-                                <TabBox day30={state.eventCards}/>
+                                <TabBox day30={state.thirty} day60={state.sixty} day90={state.ninety}/>
                     <Zoom />
                 </div>
 

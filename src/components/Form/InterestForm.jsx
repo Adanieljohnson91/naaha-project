@@ -1,23 +1,19 @@
 import React, {useState} from 'react';
-import eventService from "../../services/eventService";
+import interestService from "../../services/interestService";
 
-const ContactEventsForm = (props) =>{
+const InterestForm = (props) =>{
 
     const [form, setForm] = useState({
         name:"",
-        userId: JSON.parse(window.sessionStorage.credentials).id,
-        date:""
+        contactId: props.id
     })
     const handleChange = (e)=>{
         setForm({...form, [e.target.name]:e.target.value})
     }
      const handleSubmit = async () =>{
-     let res  = await  eventService.addEvent(form)
-     console.log(res.id, props.id)
-    
-      await eventService.contactEvent({ contactId: Number(props.id),
-         eventId: Number(res.id)});
-      await props.getContactsEvents();
+      await interestService.addInterest(form)
+      await props.getInterests();
+      
       props.handleClose();
     }
 
@@ -26,30 +22,19 @@ const ContactEventsForm = (props) =>{
         <>
                 <form>
   <div className="form-group">
-    <label htmlFor="firstname">Event Name</label>
+    <label htmlFor="firstname">Interest</label>
     <input
       type="text"
       className="form-control"
       id="name"
       name="name"
       value={form.name}
-      placeholder="Events"
+      placeholder="Interest"
       onChange={handleChange}
     />
     <small id="emailHelp" className="form-text text-muted">
      Special Occasion? Birthday? Anniversery
     </small>
-  </div>
-  <div className="form-group">
-    <label htmlFor="lastname">Date</label>
-    <input
-      type="date"
-      className="form-control"
-      id="date"
-      name="date"
-      value={form.date}
-      onChange={handleChange}
-    />
   </div>
   <button type="button" className="btn btn-primary" onClick={handleSubmit}>
     Submit
@@ -59,4 +44,4 @@ const ContactEventsForm = (props) =>{
     )
 }
 
-export default ContactEventsForm
+export default InterestForm

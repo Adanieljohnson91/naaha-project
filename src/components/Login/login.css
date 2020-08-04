@@ -3,9 +3,9 @@
     border: solid black 1px;
     box-shadow: 0px 0px 10px;
     border-radius: 5%;
-    justify-content: right;
     background-color: whitesmoke;
-    margin-top: -2em;
+    height: 50%;
+    width: 100%;
     
 }
 .border:hover {
@@ -23,5 +23,8 @@
     max-height: 100%;
     margin: 0;
     padding: 0;
-     padding: 20em;
+}
+.img-margin {
+    display: flex;
+    justify-content: center;
 }

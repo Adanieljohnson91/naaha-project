@@ -25,3 +25,7 @@
      padding: 0;
       padding: 20em;
  }
+ .img-margin {
+    display: flex;
+    justify-content: center;
+}

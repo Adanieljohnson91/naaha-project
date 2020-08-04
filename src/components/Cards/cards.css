@@ -29,3 +29,15 @@
     grid-row: 1;
     grid-column: 1;
 }
+
+.amazon-card {
+    height: 300px;
+    width: 300px;
+}
+.card-custom {
+    height: auto;
+    margin-top: -1em;
+}
+.card-custom {
+   margin-top:2em;
+}

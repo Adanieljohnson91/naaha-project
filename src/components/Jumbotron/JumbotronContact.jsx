@@ -10,7 +10,7 @@ const JumbotronContact = (props) => {
     return (
         <>
             <div className="text">
-                Copy
+              
   <div className="jumbotron-custom background-image-jumbo" >
 
                     <p className="lead move-links-up">
@@ -29,8 +29,11 @@ const JumbotronContact = (props) => {
                         {props.phone}</h2>
                     <h2>
                         {props.address}</h2>
+                        
                         <ModalContactEditButton form={<EditContactForm contact={props.contact} getContact={props.getContact} />}/><button>Delete</button>
+        
                 </div>
+                
             </div>
         </>
     )

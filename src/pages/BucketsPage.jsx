@@ -25,17 +25,18 @@ const Buckets = () => {
         events: [],
         drag: [],
         drop: [],
-        default: []
+        default: [],
+        currentUser:{},
+        currentEvent:{}
     })
     const getContacts = async () => {
         let result = await contactService.getContacts(id);
         let ev = await eventService.getDefaultEvents();
-
-
+        result = setupCheck(result)
+        if (result.length === 0) return;
         for (let i = 0; i < result.length; i++) {
-            let arr = await eventsSorter(result[i], ev);
-
-            result[i].events = arr;
+                 let arr = await eventsSorter(result[i], ev);
+                result[i].events = arr;
         }
         console.log(result, "RESULT")
         result = await checkEvents(result)
@@ -49,11 +50,29 @@ const Buckets = () => {
                 default: ev,
                 events: result[j].events,
                 drag: result.map(contact => <DragContact key={contact.id} contact={contact} />),
-                drop: result[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
+                drop: result[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} skip={skipEvent}/>)
             }
         })
     }
+    const setupCheck = (result) =>{
+        let arr = []
+        for(let i = 0 ; i < result.length; i++){
+            if(result[i].setup === false){
+                arr.push(result[i])
+            }
+        }
+        return arr;
+    }
+    const updateContact = async (contact) =>{
+       let id= contact.id
+        contact.setup = true;
+        delete contact.id;
+        delete contact.events
+      await  contactService.updateContact(contact, id)
+      contact.id = id
+    }
     const checkEvents = (result) => {
+        if (result.length === 0) return;
         let arr = []
         for (let i = result.length - 1; i >= 0; i--) {
             if (result[i].events.length !== 0) {
@@ -67,7 +86,6 @@ const Buckets = () => {
         let result = await contactService.getContactEvents(contact.id)
         let events = {}
         for (let i = 0; i < result.length; i++) {
-            console.log(result[i].event.name)
             events[result[i].event.name] = true;
         }
         return events;
@@ -75,6 +93,7 @@ const Buckets = () => {
     //COMPARES CONTACTS EVENT OBJECT WITH ALL EVENTS; PUSHES BACK ARRAY OF UNASSIGNED EVENTS
     const eventsSorter = async (contact, events) => {
         //Getting current Contacts events
+        if(contact.setup === true) return;
         let obj = await createEventsObject(contact)
         let arr = []
         console.log(obj, events)
@@ -89,6 +108,7 @@ const Buckets = () => {
     const shiftEvents = () => {
 
         setState((prevState) => {
+            updateContact(prevState.contacts[j])
             if (prevState.contacts.events === undefined) {
                 if (prevState.events.length <= 1) {
                     j--;
@@ -101,19 +121,23 @@ const Buckets = () => {
                         contacts: prevState.contacts,
                         events: prevState.contacts[j].events,
                         drag: prevState.contacts.map(contact => <DragContact key={contact.id} contact={contact} />),
-                        drop: prevState.contacts[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
+                        drop: prevState.contacts[j].events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />),
+                        currentEvent: prevState.contacts[j]
                     }
                 } else {
                     console.log(prevState, "EVENTS", prevState.events)
                     prevState.events.pop();
                     return {
                         ...prevState,
-                        drop: prevState.events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} />)
+                        drop: prevState.events.map(event => <DropZone key={event.id} event={event} shift={shiftEvents} skip={skipEvent}/>)
                     }
                 }
             }
             return;
         })
+    }
+    const skipEvent = async () =>{
+        shiftEvents();
     }
     useEffect(() => {
         getContacts();

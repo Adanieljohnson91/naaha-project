@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -44,6 +44,7 @@ function a11yProps(index) {
   };
 }
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
    minWidth: 500,
@@ -51,15 +52,18 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     minHeight: 500,
     maxHeight:500,
+    flexDirection: "row",
+
     display: "inline",
     overflow: "scroll",
-     scrollbar: "hidden",
-    backgroundColor: "rgb(12, 11, 11)"
+    scrollbar: "none",
+    backgroundColor: "rgb(12, 11, 11)",
   },
   fab: {
     position: 'absolute',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+    display: "none"
   },
   fabGreen: {
     color: theme.palette.common.white,
@@ -67,6 +71,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: green[600],
     },
+    direction:{
+      orientation: "horizontal",
+      display:"flex"
+    }
   },
 }));
 
@@ -74,12 +82,10 @@ export default function TabBox(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  const [tab, setTab] = useState([])
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
- 
 
   const transitionDuration = {
     enter: theme.transitions.duration.enteringScreen,
@@ -111,12 +117,14 @@ export default function TabBox(props) {
     <div className={classes.root}>
       <AppBar position="static" color="default">
         <Tabs
+          orientation="vertical"
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
           aria-label="action tabs example"
+          
         >
           <Tab label="30 Days" {...a11yProps(0)} />
           <Tab label="60 Days" {...a11yProps(1)} />
@@ -124,14 +132,14 @@ export default function TabBox(props) {
         </Tabs>
       </AppBar>
       
-        <TabPanel value={value} index={0} dir={theme.direction}>
+        <TabPanel className="rows" value={value} index={0} dir={theme.direction}>
          {props.day30}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          {props.day60}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          {props.day90}
         </TabPanel>
      
       {fabs.map((fab, index) => (

@@ -48,11 +48,13 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 const useStyle = makeStyles((theme) => ({
     root: {
       '& > *': {
-        marginLeft: "50.5%",
-        width: "175px",
-        height:"70px",
-        backgroundImage: "linear-gradient(to right, green , yellow)",
-        borderRadius: "50%"
+        marginTop: "5px",
+        marginLeft: "53%",
+        width: "100px",
+        height:"110px",
+        backgroundImage: "linear-gradient(to right, black , lightBlue)",
+        borderRadius: "50%",
+        boxShadow:"0px 0px 20px"
       },
     },
     extendedIcon: {
@@ -99,7 +101,7 @@ const ModalAddButton = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-       {React.cloneElement(props.form,  {handleClose: handleClose, getContactsEvents: props.getContactsEvents})}
+       {React.cloneElement(props.form,  { handleClose: handleClose })}
           </div>
         </Fade>
       </Modal>

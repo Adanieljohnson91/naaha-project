@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import LoginService from "../../services/loginService";
+import pic from "../../assets/images/Naaha.png"
 
 
 import "./login.css";
@@ -50,9 +51,12 @@ function LoginForm(props) {
     props.switch();
   }
   const signIn = (e) =>{
+    if(potentialMatch === undefined)return
     if(potentialMatch.username === form.username && potentialMatch.password === form.password){
     window.sessionStorage.setItem('credentials', JSON.stringify(potentialMatch))
     props.history.push('/dashboard')
+    }else{
+      return 
     }
     
   }
@@ -71,9 +75,9 @@ function LoginForm(props) {
       <CssBaseline />
       <div className="border">
       <div className={classes.form}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+      <div className="img-margin">
+        <img src={pic} alt=""/>
+        </div>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>

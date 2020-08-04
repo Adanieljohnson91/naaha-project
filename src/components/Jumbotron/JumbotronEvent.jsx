@@ -3,9 +3,14 @@ import "./jumbotron.css"
 import { Link } from "react-router-dom";
 import ModalEventEditButton from "../Form/ModalEventEditButton";
 import EditEventForm from "../Form/EditEventForm";
+import eventService from "../../services/eventService"
 
 const JumbotronEvent = (props) => {
-
+    const onDelete = () =>{
+        eventService.deleteEvent(props.event.id);
+       
+    }
+ 
     return (
         <>
             <div className="text">
@@ -26,7 +31,7 @@ const JumbotronEvent = (props) => {
                     <hr className="my-4" />
                     <h2>
                         {props.date}</h2>
-             <ModalEventEditButton form={<EditEventForm event={props.event} getEvent={props.getEvent} />}/><button>Delete</button>
+             <ModalEventEditButton form={<EditEventForm event={props.event} getEvent={props.getEvent} />}/><Link className="btn btn-danger" to="/events" onClick={onDelete}>Delete</Link>
                 </div>
                 
             </div>

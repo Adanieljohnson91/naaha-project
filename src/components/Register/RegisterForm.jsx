@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Register from "../../services/registerService";
 import "./register.css";
+import pic from "../../assets/images/Naaha.png"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -73,9 +74,9 @@ function RegisterForm(props) {
       <CssBaseline />
       <div className="border">
       <div className={classes.form}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+      <div className="img-margin">
+<img src={pic} alt=""/>
+</div>
         <Typography component="h1" variant="h5">
           Register
         </Typography>
@@ -104,7 +105,7 @@ function RegisterForm(props) {
             value={form.username}
             onChange={handleChange}
             autoComplete="username"
-            autoFocus
+          
           />
            <TextField
             variant="outlined"
@@ -114,23 +115,25 @@ function RegisterForm(props) {
             id="password"
             label="Password"
             name="password"
+            type="password"
             value={form.password}
             onChange={handleChange}
             autoComplete="password"
-            autoFocus
+           
           />
            <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
+            type="password"
             id="confirmpassword"
             label="Confirm Password"
             name="confirmpassword"
             value={form.confirmpassword}
             onChange={handleChange}
             autoComplete="password"
-            autoFocus
+          
           />
           <TextField
             variant="outlined"

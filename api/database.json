@@ -1,180 +1,163 @@
 {
   "users": [
     {
-      "id": 1,
-      "full_name": "Anthony Johnson",
-      "username": "Anthony",
-      "password": "password",
-      "email": "dan.johnson1022@gmail.com",
-      "phone": "4242490863"
-    },
-    {
-      "username": "TestRun",
-      "password": "R0ckst271!",
-      "full_name": "Anthony",
-      "email": "Dan.johnson1022@gmail.com",
-      "phone": "9312188140",
-      "id": 2
-    },
-    {
-      "username": "Jake94",
-      "password": "password",
-      "full_name": "Jake",
-      "email": "Jake@gmail.com",
-      "phone": "9223221212",
-      "id": 3
-    },
-    {
-      "username": "Jessej123",
-      "password": "password",
-      "full_name": "Jesse James",
-      "email": "email",
-      "phone": "9212033939",
-      "id": 4
-    },
-    {
       "username": "Username",
-      "password": "password",
-      "full_name": "Danny Johnson",
-      "email": "dan.johnson1022@gmail.com",
-      "phone": "4242490863",
-      "id": 5
-    },
-    {
-      "username": "Anthony123",
       "password": "password",
       "full_name": "Anthony",
       "email": "dan@dan.com",
       "phone": "4242490863",
-      "id": 6
+      "id": 1
     }
   ],
   "contacts": [
     {
-      "id": 1,
-      "firstname": "Jake",
-      "lastname": "Brown",
-      "phone": "4436054707",
-      "address": "123 Main St",
-      "userId": 1,
-      "setup": false
-    },
-    {
       "firstname": "Anthony",
       "lastname": "Johnson",
-      "phone": "3109999943",
+      "phone": "9312188140",
+      "address": "1226 2nd St",
+      "userId": 1,
+      "setup": true,
+      "id": 1
+    },
+    {
+      "firstname": "Jeanette",
+      "lastname": "Avillian",
+      "phone": "2322222233",
       "address": "123 Main Street",
       "userId": 1,
+      "setup": true,
       "id": 2
-    },
-    {
-      "firstname": "Lisa",
-      "lastname": "Zorilla",
-      "phone": "3102320987",
-      "address": "123 Blue Ave",
-      "userId": 5,
-      "setup": false,
-      "id": 3
-    },
-    {
-      "firstname": "Anthony",
-      "lastname": "Johnson",
-      "phone": "9999999999",
-      "address": "123 Main St",
-      "userId": 5,
-      "setup": false,
-      "id": 4
-    },
-    {
-      "firstname": "Jake",
-      "lastname": "Brown",
-      "phone": "9999999999",
-      "address": "123 Main St",
-      "userId": 5,
-      "setup": false,
-      "id": 5
-    },
-    {
-      "firstname": "Anthony",
-      "lastname": "Johnson",
-      "phone": "9312188140",
-      "address": "1226 2nd St",
-      "userId": 5,
-      "id": 6
-    },
-    {
-      "firstname": "Ashley",
-      "lastname": "Johnson",
-      "phone": "4242490863",
-      "address": "123 Main St",
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "firstname": "Abby",
-      "lastname": "Blue",
-      "phone": "3109999943",
-      "address": "123 Main Ave",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "firstname": "Anthony",
-      "lastname": "Johnson",
-      "phone": "9312188140",
-      "address": "1226 2nd St",
-      "userId": 1,
-      "id": 9
     }
   ],
   "events": [
-   
+    {
+      "name": "Birthday",
+      "userId": 1,
+      "date": "2020-08-23",
+      "id": 1
+    },
+    {
+      "name": "BBQ, bring ribs",
+      "userId": 1,
+      "date": "2020-12-09",
+      "id": 2
+    },
+    {
+      "name": "Special",
+      "userId": 1,
+      "date": "2020-12-25",
+      "id": 3
+    },
+    {
+      "name": "Graduation",
+      "userId": 1,
+      "date": "2020-10-07",
+      "id": 4
+    },
+    {
+      "name": "Anniversery",
+      "userId": 1,
+      "date": "2020-12-24",
+      "id": 5
+    },
+    {
+      "name": "Husbands Birthday",
+      "userId": 1,
+      "date": "2020-12-25",
+      "id": 6
+    },
+    {
+      "name": "Christmas",
+      "userId": 1,
+      "date": "2020-12-25",
+      "id": 7
+    },
+    {
+      "name": "Birthday",
+      "userId": 1,
+      "date": "2020-09-08",
+      "id": 8
+    }
   ],
   "contactEvent": [
-    
+    {
+      "contactId": 1,
+      "eventId": 1,
+      "id": 1
+    },
+    {
+      "contactId": 1,
+      "eventId": 2,
+      "id": 2
+    },
+    {
+      "contactId": 1,
+      "eventId": 3,
+      "id": 3
+    },
+    {
+      "contactId": 1,
+      "eventId": 4,
+      "id": 4
+    },
+    {
+      "contactId": 1,
+      "eventId": 5,
+      "id": 5
+    },
+    {
+      "contactId": 2,
+      "eventId": 6,
+      "id": 6
+    },
+    {
+      "contactId": 2,
+      "eventId": 7,
+      "id": 7
+    },
+    {
+      "contactId": 2,
+      "eventId": 8,
+      "id": 8
+    }
   ],
   "defaultEvents": [
     {
       "id": 1,
-      "name": "Mothers Day",
+      "name": "Birthday",
       "date": "2020-12-25"
     },
     {
       "id": 2,
-      "name": "Christmas",
+      "name": "Anniversery",
       "date": "2020-12-25"
     },
     {
       "id": 3,
-      "name": "Hannaka",
+      "name": "Special Event",
       "date": "2020-12-25"
     },
     {
       "id": 4,
-      "name": "Easter",
+      "name": "Special",
       "date": "2020-12-25"
     },
     {
       "id": 5,
-      "name": "Flowers",
+      "name": "Special",
       "date": "2020-12-25"
     },
     {
       "id": 6,
-      "name": "Birthday",
+      "name": "Special",
       "date": "2020-12-25"
     }
   ],
   "interest": [
     {
-      "id": 1,
-      "name": "boats",
-      "contactId": 1
-    },
-    {
-      "id": 2,
-      "name": "planes",
-      "contactId": 1
+      "name": "Warhammer",
+      "contactId": "1",
+      "id": 1
     }
   ]
 }
