@@ -5,25 +5,25 @@
       "password": "password",
       "full_name": "Anthony",
       "email": "dan@dan.com",
-      "phone": "4242490863",
+      "phone": "4242400876",
       "id": 1
     }
   ],
   "contacts": [
     {
-      "firstname": "Anthony",
-      "lastname": "Johnson",
-      "phone": "9312188140",
-      "address": "1226 2nd St",
+      "firstname": "Jack",
+      "lastname": "Jones",
+      "phone": "4242490863",
+      "address": "123 Main Street",
       "userId": 1,
       "setup": true,
       "id": 1
     },
     {
-      "firstname": "Jeanette",
-      "lastname": "Avillian",
-      "phone": "2322222233",
-      "address": "123 Main Street",
+      "firstname": "Anthony",
+      "lastname": "Johnson",
+      "phone": "9312188140",
+      "address": "1226 2nd St",
       "userId": 1,
       "setup": true,
       "id": 2
@@ -33,50 +33,62 @@
     {
       "name": "Birthday",
       "userId": 1,
-      "date": "2020-08-23",
+      "date": "2020-11-03",
       "id": 1
     },
     {
-      "name": "BBQ, bring ribs",
+      "name": "Halloween",
       "userId": 1,
-      "date": "2020-12-09",
+      "date": "2020-11-25",
       "id": 2
     },
     {
-      "name": "Special",
+      "name": "BBQ Ribs",
       "userId": 1,
-      "date": "2020-12-25",
+      "date": "2020-10-25",
       "id": 3
     },
     {
-      "name": "Graduation",
+      "name": "Wedding",
       "userId": 1,
-      "date": "2020-10-07",
+      "date": "2020-09-25",
       "id": 4
     },
     {
       "name": "Anniversery",
       "userId": 1,
-      "date": "2020-12-24",
+      "date": "2020-08-25",
       "id": 5
     },
     {
-      "name": "Husbands Birthday",
+      "name": "Other",
       "userId": 1,
-      "date": "2020-12-25",
+      "date": "2020-03-25",
       "id": 6
     },
     {
-      "name": "Christmas",
+      "name": "Anniversery",
       "userId": 1,
-      "date": "2020-12-25",
+      "date": "2020-02-25",
       "id": 7
+    },
+    {
+      "name": "Birthday- Jacks Kid",
+      "userId": 1,
+      "date": "2020-01-25",
+      "id": 8
     },
     {
       "name": "Birthday",
       "userId": 1,
-      "date": "2020-09-08",
-      "id": 8
+      "date": "2020-08-23",
+      "id": 9
+    },
+    {
+      "name": "BBQ at the Jones",
+      "userId": 1,
+      "date": "2020-05-25",
+      "id": 10
     }
   ],
   "contactEvent": [
@@ -106,58 +118,92 @@
       "id": 5
     },
     {
-      "contactId": 2,
+      "contactId": 1,
       "eventId": 6,
       "id": 6
     },
     {
-      "contactId": 2,
+      "contactId": 1,
       "eventId": 7,
       "id": 7
     },
     {
-      "contactId": 2,
+      "contactId": 1,
       "eventId": 8,
       "id": 8
+    },
+    {
+      "contactId": 2,
+      "eventId": 9,
+      "id": 9
+    },
+    {
+      "contactId": 2,
+      "eventId": 10,
+      "id": 10
     }
   ],
   "defaultEvents": [
     {
       "id": 1,
       "name": "Birthday",
-      "date": "2020-12-25"
+      "date": "2020-01-25"
     },
     {
       "id": 2,
       "name": "Anniversery",
-      "date": "2020-12-25"
+      "date": "2020-02-25"
     },
     {
       "id": 3,
-      "name": "Special Event",
-      "date": "2020-12-25"
+      "name": "Other",
+      "date": "2020-03-25"
     },
     {
       "id": 4,
-      "name": "Special",
-      "date": "2020-12-25"
+      "name": "Other",
+      "date": "2020-04-25"
     },
     {
       "id": 5,
-      "name": "Special",
-      "date": "2020-12-25"
+      "name": "Other",
+      "date": "2020-05-25"
     },
     {
       "id": 6,
+      "name": "Other",
+      "date": "2020-06-25"
+    },
+    {
+      "id": 7,
+      "name": "Birthday",
+      "date": "2020-07-25"
+    },
+    {
+      "id": 8,
+      "name": "Anniversery",
+      "date": "2020-08-25"
+    },
+    {
+      "id": 9,
+      "name": "Event",
+      "date": "2020-09-25"
+    },
+    {
+      "id": 10,
       "name": "Special",
+      "date": "2020-10-25"
+    },
+    {
+      "id": 11,
+      "name": "Holiday",
+      "date": "2020-11-25"
+    },
+    {
+      "id": 12,
+      "name": "Birthday",
       "date": "2020-12-25"
     }
   ],
-  "interest": [
-    {
-      "name": "Warhammer",
-      "contactId": "1",
-      "id": 1
-    }
-  ]
+  "interest": []
 }

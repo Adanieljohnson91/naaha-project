@@ -42,10 +42,10 @@ const EventPage = (props) => {
         getEvent();
        isLoaded(true)
     }, [])
-    useEffect(()=>{
-      
-        getAmazonCards();
-    }, [event.event])
+    // useEffect(()=>{
+    //     if(event.event.name === undefined) return;
+    //     getAmazonCards();
+    // }, [event.event])
     return (
         <>
             <div className="page-center ">
@@ -65,7 +65,7 @@ const EventPage = (props) => {
                 <h1>Events</h1>
                <div className="center-interests">
                <div className="product-card-wrap">
-                   {event.amazonCards.length > 0 ? event.amazonCards : "null"}
+                   {/* {event.amazonCards.length > 0 ? event.amazonCards : "null"} */}
                </div>
 </div>
             </div>

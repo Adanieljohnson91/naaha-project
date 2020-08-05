@@ -23,12 +23,13 @@
     display: flex;
     background-color: white;
     justify-content: left;
-    margin-top: 5em;
+    margin-top: -10em;
     box-shadow: 0px 0px 10px;
     margin-left: 210px;
     margin-right: 10px;
     border-radius: 1%;
     overflow: scroll;
+    border: 1px solid black;
 }
 .bottom-section {
     display: flex;
@@ -150,4 +151,17 @@
 }
 .product-box::-webkit-scrollbar{
     display: none;
+}
+.chart-size {
+    margin-left: 25%;
+    display: inline;
+    display: flex;
+    height: 50vh;
+    width:50vw;
+}
+.chart{
+    flex: 1;
+}
+.chart2 {
+    flex:1
 }
