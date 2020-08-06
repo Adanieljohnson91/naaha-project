@@ -1,5 +1,5 @@
 
-const URL = "http://localhost:5002/events";
+const URL = "https://naahaapi.herokuapp.com/events";
 const response = res=>res.json();
 const responseSuccess = res=>res;
 const errorResponse = err=>console.log(err);
@@ -48,6 +48,21 @@ export default {
             },
             body: JSON.stringify(data)
         })
+        .then(response)
+        .then(responseSuccess)
+        .catch(errorResponse)
+    },
+    contactEvent(data){
+        return fetch(`https://naahaapi.herokuapp.com/contactEvent`, {
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+        })
+    },
+    getDefaultEvents(){
+        return fetch('https://naahaapi.herokuapp.com/defaultEvents')
         .then(response)
         .then(responseSuccess)
         .catch(errorResponse)

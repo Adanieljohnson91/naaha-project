@@ -1,5 +1,5 @@
 
-const URL = 'http://localhost:5002/contacts';
+const URL = 'https://naahaapi.herokuapp.com/contacts';
 const response = (res)=>res.json();
 const responseSuccess = (res)=>res;
 const errorResponse = err=>console.log(err)
@@ -48,6 +48,12 @@ export default {
             },
             body: JSON.stringify(data)
         })
+        .then(response)
+        .then(responseSuccess)
+        .catch(errorResponse)
+    },
+    getContactEvents(id){
+        return fetch(`https://naahaapi.herokuapp.com/contactEvent?contactId=${id}&_expand=event`)
         .then(response)
         .then(responseSuccess)
         .catch(errorResponse)

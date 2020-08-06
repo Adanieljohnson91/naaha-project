@@ -32,7 +32,7 @@ const EventsPage = () => {
 
     return (
         <>
-            <div className="page-center">
+            <div className="page-center body">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader /></ToolBarZero>
 
                 <Jumbotron
@@ -49,7 +49,7 @@ const EventsPage = () => {
 
                 <ToolBar />
                 <ModalAddButton form={<EventsForm getEvents={getEvents}/>} />
-                <div className="bottom-section">
+                <div className="bottom-section container-body">
                     <Container fluid={true}  >
                         <div className="container-background flex-events">
                            {events.events}

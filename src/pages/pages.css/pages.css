@@ -14,7 +14,7 @@
 }
 .container-background {
     
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
 
 }
@@ -23,11 +23,13 @@
     display: flex;
     background-color: white;
     justify-content: left;
-    margin-top: 5em;
+    margin-top: -10em;
     box-shadow: 0px 0px 10px;
     margin-left: 210px;
     margin-right: 10px;
     border-radius: 1%;
+    overflow: scroll;
+    border: 1px solid black;
 }
 .bottom-section {
     display: flex;
@@ -37,7 +39,7 @@
     box-shadow: 0px 0px 10px;
     margin-left: 210px;
     margin-right: 10px;
-    border-radius: 1%;
+    border-radius: 10px;
     height: 500px;
     overflow: scroll;
 }
@@ -55,6 +57,8 @@
       min-width:200px;
       background-clip: border-box;
       border: 1px solid rgba(0,0,0,.125);
+      background-color: rgb(53, 62, 71);
+      color: rgb(228, 227, 227);
     }
     .card-body-custom{
         flex: auto;
@@ -74,9 +78,10 @@
         display: flex;
         flex-direction: column;
         margin: 0;
-        padding: 0;
+        padding:0;
+        padding-right: 1em;
         margin-left: -11em;
-        margin-right: 1em;
+       
     }
 
     .jumbotron-custom{
@@ -97,4 +102,66 @@
         display: flex;
         flex-wrap: wrap;
     }
- 
+    .body {
+    }
+    .card-padding {
+        padding-top: 1.5em;
+    }
+    .container-body {
+        background-color: #012840;
+    }
+ .position {
+     position: relative;
+     height: 1000px;
+     width: 300px;
+     overflow: hidden;
+ }
+ .bucket {
+    height: 1000px;
+    display: flex;
+    background-color: white;
+    margin-top: 5em;
+    box-shadow: 0px 0px 10px;
+    margin-left: 210px;
+    margin-right: 10px;
+    border-radius: 1%;
+    overflow: scroll;
+    justify-content: center;
+}
+.center-interests {
+    margin-left: 49%;
+    font-size: 50px;
+}
+.center-pagination {
+    margin-left: 49%;
+    margin-left: -10%;
+}
+.product-box {
+    height: fit-content;
+    width: max-content;
+}
+.product-card-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: -75%;
+    height: 800px;
+    font-size: 10px;
+    overflow: scroll;
+}
+.product-box::-webkit-scrollbar{
+    display: none;
+}
+.chart-size {
+    margin-left: 25%;
+    display: inline;
+    display: flex;
+    height: 50vh;
+    width:50vw;
+}
+.chart{
+    flex: 1;
+}
+.chart2 {
+    flex:1
+}

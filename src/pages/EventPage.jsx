@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import Authentication from "../auth/Authenticaion";
 import UserHeader from "../components/Header/UserHeader"
-import { Container } from '@material-ui/core'
 import { withStyles } from "@material-ui/core";
 import "./pages.css/pages.css"
 import ToolBar from "@material-ui/core/Toolbar";
-import Zoom from "../components/ScrollUp/Zoom";
 import eventServices from "../services/eventService";
 import JumbotronEvent from '../components/Jumbotron/JumbotronEvent';
-
+import amazonAPI from "../services/amazonAPI";
+import AmazonProductCards from "../components/Cards/amazonProductCards";
 
 const EventPage = (props) => {
     const ToolBarZero = withStyles({
@@ -16,8 +15,10 @@ const EventPage = (props) => {
         padding: 0
     })(ToolBar)
     const [event, setEvent] = useState({
-        event:{}
+        event:{},
+        amazonCards:[]
     })
+    const [loaded, isLoaded] = useState(false)
 
 
     const getEvent = async () =>{
@@ -26,12 +27,28 @@ const EventPage = (props) => {
      await setEvent({...event, event: res})
        return;
     }
+    const getAmazonCards = async () => {
+        let res = await amazonAPI.searchInterest(event.event.name, 1)
+        console.log(res)
+        setEvent((prevState) => {
+            return {
+                ...prevState,
+                amazonCards: res.search_results.map(product => <AmazonProductCards key={product.position} product={product} />)
+            }
+        })
+        console.log("ENDED")
+    }
     useEffect(()=>{
         getEvent();
+       isLoaded(true)
     }, [])
+    // useEffect(()=>{
+    //     if(event.event.name === undefined) return;
+    //     getAmazonCards();
+    // }, [event.event])
     return (
         <>
-            <div className="page-center">
+            <div className="page-center ">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
                 <JumbotronEvent 
                 getEvent={getEvent}
@@ -46,17 +63,11 @@ const EventPage = (props) => {
                 name2="Buckets"/>
                     <ToolBar />
                 <h1>Events</h1>
-                <div className="bottom-section">
-                    
-                    <Container fluid={true}  >
-                        <div className="container-background flex-events">
-                          {/* {contacts.contacts}   */}
-                        </div>
-
-                    </Container>
-                    <Zoom />
-                </div>
-
+               <div className="center-interests">
+               <div className="product-card-wrap">
+                   {/* {event.amazonCards.length > 0 ? event.amazonCards : "null"} */}
+               </div>
+</div>
             </div>
 
         </>

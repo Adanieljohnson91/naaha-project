@@ -15,12 +15,13 @@ const LoginPage = (props) =>{
 
     return (
         <>
+        <div className="">
         <div className="background full-screen">
             <Header/>
            {form ? <LoginForm {...props} switch={switchViews}/> : <RegisterForm switch={switchViews}/>}
         </div>
+        </div>
         </>
     )
-
 }
 export default withRouter(LoginPage);

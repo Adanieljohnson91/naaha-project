@@ -78,7 +78,7 @@ const ModalEventEditButton = (props) => {
     return (
         <>
         <div>
-            <button onClick={handleOpen}> Edit </button>
+            <button className="btn btn-primary mb-1" onClick={handleOpen}> Edit </button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
