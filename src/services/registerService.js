@@ -1,4 +1,4 @@
-const URL = "http://localhost:5002/users"
+const URL = "https://naahaapi.herokuapp.com/users"
 const response = (res)=>res.json();
 const responseSuccess = (res)=>res;
 

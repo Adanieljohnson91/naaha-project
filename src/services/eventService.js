@@ -1,5 +1,5 @@
 
-const URL = "http://localhost:5002/events";
+const URL = "https://naahaapi.herokuapp.com/events";
 const response = res=>res.json();
 const responseSuccess = res=>res;
 const errorResponse = err=>console.log(err);
@@ -53,7 +53,7 @@ export default {
         .catch(errorResponse)
     },
     contactEvent(data){
-        return fetch(`http://localhost:5002/contactEvent`, {
+        return fetch(`https://naahaapi.herokuapp.com/contactEvent`, {
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
