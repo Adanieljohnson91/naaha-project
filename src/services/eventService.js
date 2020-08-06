@@ -62,7 +62,7 @@ export default {
         })
     },
     getDefaultEvents(){
-        return fetch('http://localhost:5002/defaultEvents')
+        return fetch('https://naahaapi.herokuapp.com/defaultEvents')
         .then(response)
         .then(responseSuccess)
         .catch(errorResponse)
