@@ -82,7 +82,6 @@ const ContactPage = (props) => {
     }
     const getAmazonCards = async () => {
         let res = await amazonAPI.searchInterest(contacts.currentInterest, contacts.page)
-        if(!Array.isArray(res))return;
         setContact((prevState) => {
             return {
                 ...prevState,
