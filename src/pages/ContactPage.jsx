@@ -62,7 +62,7 @@ const ContactPage = (props) => {
     }
     const getContactsEvents = async () => {
         let res = await contactServices.getContactEvents(props.match.params.id)
-        console.log(res);
+        if(!Array.isArray(res))return;
         setContact((prevState) => {
             return {
                 ...prevState,
@@ -82,7 +82,7 @@ const ContactPage = (props) => {
     }
     const getAmazonCards = async () => {
         let res = await amazonAPI.searchInterest(contacts.currentInterest, contacts.page)
-        console.log(res)
+        if(!Array.isArray(res))return;
         setContact((prevState) => {
             return {
                 ...prevState,
