@@ -114,15 +114,17 @@ const DashBoard = () => {
                     link2="/buckets"
                     name2="Buckets" />
                     <div className="chart-size">
-                     <Chart />  <Chart2/>
-                    </div>
+                    <div className="buckets">
+                     {/* <Chart />  */}
+                      <Chart2/>
+                    </div></div>
                     
                 <div className="top-section scrolling-wrapper container-body">
 
                     <ToolBar />
                     {/* <ScheduleButton/> */}
                     
-                        <div className="container-background card-padding ">
+                        <div className=" ">
                             {state.contactCards}
                         </div>
                     

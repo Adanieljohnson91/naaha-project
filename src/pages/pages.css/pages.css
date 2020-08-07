@@ -14,22 +14,18 @@
 }
 .container-background {
     
-    justify-content: center;
+
     display: flex;
 
 }
 .top-section {
-    height: 300px;
     display: flex;
-    background-color: white;
     justify-content: left;
-    margin-top: -10em;
-    box-shadow: 0px 0px 10px;
+    
+    box-shadow: 0px 0px 5px;
     margin-left: 210px;
     margin-right: 10px;
-    border-radius: 1%;
     overflow: scroll;
-    border: 1px solid black;
 }
 .bottom-section {
     display: flex;
@@ -103,6 +99,8 @@
         flex-wrap: wrap;
     }
     .body {
+        background-color: rgb(14, 52, 102);
+        color: white;
     }
     .card-padding {
         padding-top: 1.5em;
@@ -112,12 +110,11 @@
     }
  .position {
      position: relative;
-     height: 1000px;
      width: 300px;
-     overflow: hidden;
+     padding: 1em;
  }
  .bucket {
-    height: 1000px;
+    height: 550px;
     display: flex;
     background-color: white;
     margin-top: 5em;
@@ -156,12 +153,27 @@
     margin-left: 25%;
     display: inline;
     display: flex;
-    height: 50vh;
+    height: 20vh;
     width:50vw;
 }
 .chart{
     flex: 1;
 }
 .chart2 {
-    flex:1
+    margin: 1em;
+    flex:1;
+    background-color: rgb(0, 10, 43);
+    height: 150px;
+    padding: 5px;
+    
+}
+.chart2:hover{
+    box-shadow: turquoise 0px 0px 1500px;
+}
+.buckets{
+    margin-left: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    margin-bottom: 2em;
 }

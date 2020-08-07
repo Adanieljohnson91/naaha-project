@@ -22,7 +22,7 @@ const JumbotronContact = (props) => {
                     <h2>
                         {props.address}</h2>
                         
-                        <ModalContactEditButton form={<EditContactForm contact={props.contact} getContact={props.getContact} />}/><button>Delete</button>
+                        <ModalContactEditButton className="btn btn-dark" form={<EditContactForm contact={props.contact} getContact={props.getContact} />}/><button className="btn btn-danger mt-1">Delete</button>
         
                 </div>
                 

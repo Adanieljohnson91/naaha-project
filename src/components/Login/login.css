@@ -1,3 +1,5 @@
+
+
 .border {
    padding: 1em;
     border: solid black 1px;
@@ -6,6 +8,7 @@
     background-color: whitesmoke;
     height: 50%;
     width: 100%;
+    min-width: 300px;
     
 }
 .border:hover {
@@ -15,7 +18,8 @@
     background-image: url("../../assets/images/Reevet-background.jpg");
 }
 .full-screen {
-    
+    min-width: 600px;
+    min-height: 850px;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
