@@ -14,8 +14,8 @@ const Chart = () => {
           {
             label: 'Events',
             backgroundColor: [
-              '#B21F00',
-              '#C9DE00',
+              '#33FF52',
+              '#33FF52',
               '#2FDE00',
               '#00A6B4',
               '#6800B4',
@@ -88,12 +88,7 @@ const Chart = () => {
           options={{
             title:{
                 layout:{
-                    padding: {
-                        left: 50,
-                        right: 0,
-                        top: 100,
-                        bottom: 1000
-                    } 
+                   backgroundColor: "white"
                 },
               display:true,
               text:'Events per month',

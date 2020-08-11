@@ -7,36 +7,37 @@ import eventService from "../../services/eventService";
 const Chart2 = () => {
     const id = JSON.parse(window.sessionStorage.credentials).id
     const [state, setState ]= useState({
-        labels: ['January', 'February', 'March',
-                 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: ['Jan', 'Feb', 'Mar',
+                 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
           {
             label: 'Events',
             backgroundColor: [
-              '#B21F00',
-              '#C9DE00',
-              '#2FDE00',
-              '#00A6B4',
-              '#6800B4',
-              '#175000',
-              '#003350',
-              '#35014F',
-              '#175000',
-              '#003350',
-              '#35014F'
+              '#FF3933',
+              '#FF7133',
+              '#FFAF33',
+              '#FFAF33',
+              '#B2FF33',
+              '#61FF33',
+              '#33F3FF',
+              '#3390FF',
+              '#8A33FF',
+              '#D733FF',
+              '#FF33B5',
+              '#33F9FF'
             ],
             hoverBackgroundColor: [
-            '#501800',
-            '#4B5000',
-            '#175000',
-            '#003350',
-            '#35014F',
-            '#175000',
-            '#003350',
-            '#35014F',
-            '#175000',
-            '#003350',
-            '#35014F'
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52',
+            '#33FF52'
             ],
             data: [65, 59, 80, 81, 56, 54, 21, 12, 84, 23, 20]
           }
@@ -90,16 +91,26 @@ const Chart2 = () => {
         <Line
           data={state}
           options={{
+            layout: {
+              padding: {
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0
+              }
+          },
             title:{
               display:true,
-              text:'Average # of Events per month',
-              fontSize:10,
-              responsize:true
+              text:'Events per month',
+              fontSize:20,
+              responsize:true,
+              fontColor: 'white'
             },
             legend:{
               display:true,
               position:'right',
-              fontSize:100
+              fontSize:"small",
+              color: '#33FF52'
             }
           }}
         />

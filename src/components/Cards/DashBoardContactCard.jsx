@@ -15,7 +15,7 @@ const ContactCard = (props) =>{
         <div className="card-custom card-shadows" style={{ width: "18rem" }}>
 
 <div className="card-body-custom">
-    <img className="image-size" src="https://g.foolcdn.com/editorial/images/578933/square01.jpg"/>
+    <img className="image-size align-content-center" src={props.contact.image || "https://g.foolcdn.com/editorial/images/578933/square01.jpg"}/>
     <h5 className="card-title"></h5>
     <p className="card-text">
       {props.contact.firstname || "Bob"} {props.contact.lastname}</p>

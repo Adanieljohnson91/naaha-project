@@ -30,14 +30,14 @@ const DropZone = (props) => {
 
   return (
     <>
-      <div onDragOver={onDragOver} onDrop={drop} className="drop-zone stack2">
-        <div className="card">
-          <img className="card-img-top" src="https://media-exp1.licdn.com/dms/image/C560BAQG-vLQJr3J3zg/company-logo_200_200/0?e=2159024400&v=beta&t=cXNxHCDmX7A_e_LGk75XIbL-eVc7VYdHQfSFH39r3Qo" alt="Card image cap" />
-          <div className="card-body">
+      <div onDragOver={onDragOver} onDrop={drop} className="drop-zone stack2 m-2">
+        <div className="">
+          <img className=" dnd-img" src="https://media-exp1.licdn.com/dms/image/C560BAQG-vLQJr3J3zg/company-logo_200_200/0?e=2159024400&v=beta&t=cXNxHCDmX7A_e_LGk75XIbL-eVc7VYdHQfSFH39r3Qo" alt="Card image cap" />
+          <div className="center-card">
             <input value={state.name} onChange={onChangeHandler} name="name" className="card-title" />
             <input value={state.date} onChange={onChangeHandler} type="date" name="date" className="card-text"/>
             <p className="card-text">
-              <button type="button" onClick={props.skip}>Skip</button>
+              <button type="button" className="btn btn-dark m-1 mb-5" onClick={props.skip}>Skip</button>
             </p>
           </div>
         </div>
