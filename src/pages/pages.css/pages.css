@@ -20,7 +20,8 @@
 
 }
 .top-section {
-    display: inline;
+    display: flex;
+    height: 300px;
     justify-content: left;
     flex-direction: row;
     box-shadow: 0px 0px 5px;

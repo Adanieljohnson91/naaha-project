@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import contactService from "../../services/contactService";
+import "./form.css";
 
 
 const ContactForm = (props) => {
-
+  const [selectedImages, setSelectedImages] = useState("");
+  const [imageLoading, setIsImageLoading] = useState(false)
   const [form, setForm] = useState({
     firstname: "",
     lastname: "",
     phone: "",
     address: "",
     userId: JSON.parse(window.sessionStorage.credentials).id,
+    image:"",
     setup: false
   })
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+   let {name, value} = e.target;
+    setForm((prevState)=>{ 
+      return {
+        ...prevState, 
+        [name]: value}
+     })
   }
   const handleSubmit = async () => {
     await contactService.addContact(form)
@@ -21,12 +29,32 @@ const ContactForm = (props) => {
     props.handleClose();
   }
 
+  const handleFileSelected = async (e) => {
+    const files = e.target.files
+    setIsImageLoading(true)
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'naahapreset')
+    const res = await fetch('https://api.cloudinary.com/v1_1/naaha/image/upload', {
+      method: "POST",
+      body: data
+    })
+    const file = await res.json()
+    // const currentStateCopy = [...selectedImages]
+    // currentStateCopy.push(file.secure_url)
+    setSelectedImages(file.secure_url)
+    setForm({...form, image:file.secure_url})
+    setIsImageLoading(false)
+  }
 
   return (
     <>
       <form>
         <div className="form-group">
+          <img className="form-img" src={imageLoading ? selectedImages : selectedImages} alt=""/>
+          <input  type="file" name="image" id="image" accept="image/*" onChange={handleFileSelected} />
           <label htmlFor="firstname">Firstname</label>
+          <br/>
           <input
             type="text"
             className="form-control"
