@@ -78,7 +78,7 @@ const ModalContactEditButton = (props) => {
     return (
         <>
         <div>
-            <button onClick={handleOpen}> Edit </button>
+            <button  className="btn btn-dark"  onClick={handleOpen}> Edit </button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
