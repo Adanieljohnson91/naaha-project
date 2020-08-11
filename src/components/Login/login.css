@@ -1,18 +1,18 @@
-.border {
-   padding: 1em;
+.login_border {
+    padding: 30px;
+    min-width: 350px;
     border: solid black 1px;
     box-shadow: 0px 0px 10px;
     border-radius: 5%;
     background-color: whitesmoke;
-    height: 50%;
-    width: 100%;
-    
 }
 .border:hover {
     box-shadow: 0px 0px 20px;
 }
 .background {
     background-image: url("../../assets/images/Reevet-background.jpg");
+    position: fixed;
+    z-index: -1;
 }
 .full-screen {
     
@@ -28,3 +28,18 @@
     display: flex;
     justify-content: center;
 }
+
+.login_form_container {
+    padding-top: 100px;
+    position: flex;
+    z-index: 2;
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .login_border {
+        min-width: 100%; 
+    }
+}
+
+

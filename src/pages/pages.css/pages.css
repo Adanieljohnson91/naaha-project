@@ -102,8 +102,8 @@
         display: flex;
         flex-wrap: wrap;
     }
-    .body {
-    }
+    /* .body {
+    } */
     .card-padding {
         padding-top: 1.5em;
     }
@@ -156,8 +156,8 @@
     margin-left: 25%;
     display: inline;
     display: flex;
-    height: 50vh;
-    width:50vw;
+    /* height: 50vh;
+    width:50vw; */
 }
 .chart{
     flex: 1;

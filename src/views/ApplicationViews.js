@@ -12,14 +12,14 @@ import EventPage from "../pages/EventPage"
 const ApplicationViews = () =>{
     return (
         <>
-        <Route exact path="/" component={DashBoard}/>
-        <Route exact path="/login" component={LoginPage}/>
-        <Route exact path="/dashboard" component={DashBoard}/>
-        <Route exact path="/contacts" component={ContactsPage}/>
-        <Route exact path="/events" component={EventsPage}/>
-        <Route exact path="/buckets" component={BucketsPage}/>
-        <Route exact path="/contact/:id" component={ContactPage}/>
-        <Route exact path="/event/:id" component={EventPage}/>
+            <Route exact path="/" component={DashBoard}/>
+            <Route exact path="/login" component={LoginPage}/>
+            <Route exact path="/dashboard" component={DashBoard}/>
+            <Route exact path="/contacts" component={ContactsPage}/>
+            <Route exact path="/events" component={EventsPage}/>
+            <Route exact path="/buckets" component={BucketsPage}/>
+            <Route exact path="/contact/:id" component={ContactPage}/>
+            <Route exact path="/event/:id" component={EventPage}/>
         </>
     )
 }
