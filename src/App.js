@@ -5,9 +5,7 @@ import ApplicationViews from "./views/ApplicationViews";
 function App() {
  
   return (
-    <>
      <ApplicationViews/>
-    </>
   );
   
 }
