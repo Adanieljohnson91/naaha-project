@@ -160,17 +160,17 @@ const Buckets = () => {
                 <ToolBar />
 
 
-                <div className="container-background flex-events bucket">
+                <div className="buckets">
                     <div className="position stack">
                         {state !== undefined ? state.drop : "NUll"}
                     </div>
                     <div className="position stack2">
                         {state !== undefined ? state.drag : "Null"}
                     </div>
-
+                </div>
 
                     <Zoom />
-                </div>
+              
             </div>
         </>
     )

@@ -20,7 +20,7 @@ const ContactEventCard = (props) => {
                         {props.event.date || "NA"}</p>
                     <Link to={url} className="btn btn-primary">
                         Go somewhere </Link>
-                    <button type="button" onClick={handleDelete} >Delete Me</button>
+                    <button type="button" className="btn btn-danger m-1" onClick={handleDelete} >Delete Me</button>
                 </div>
             </div>
         </>
