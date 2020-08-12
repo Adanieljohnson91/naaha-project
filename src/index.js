@@ -10,7 +10,7 @@ import "./pages/pages.css/pages.css";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App />
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

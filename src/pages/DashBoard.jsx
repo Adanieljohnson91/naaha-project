@@ -124,7 +124,7 @@ const DashBoard = () => {
                     <ToolBar />
                     {/* <ScheduleButton/> */}
                     
-                        <div className=" ">
+                        <div className="card-custom scrolling-wrapper">
                             {state.contactCards}
                         </div>
                     
