@@ -100,6 +100,7 @@
         background-color: rgb(14, 52, 102);
         color: rgb(255, 255, 255);
         width: 100vw;
+        height: 100vh;
     }
     .card-padding {
         padding-top: 1.5em;
@@ -124,12 +125,14 @@
     justify-content: center;
 }
 .center-interests {
-    margin-left: 49%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
     font-size: 50px;
 }
 .center-pagination {
-    margin-left: 49%;
-    margin-left: -10%;
+    display: flex;
+   justify-content: center;
 }
 .product-box {
     height: fit-content;
@@ -139,10 +142,21 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-left: -75%;
     height: 800px;
     font-size: 10px;
     overflow: scroll;
+    
+}
+.product-card-wrap .card-img-top {
+    height: 200px;
+    width: 200px;
+}
+.product-card-wrap .card {
+    max-height: 600px;
+}
+.product-card-wrap .card-title {
+    height: 200px;
+    color: black;
 }
 .product-box::-webkit-scrollbar{
     display: none;

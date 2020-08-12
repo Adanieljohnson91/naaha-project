@@ -63,7 +63,7 @@ const EventPage = (props) => {
                 link2="/buckets"
                 name2="Buckets"/>
                     <ToolBar />
-                <h1>Events</h1>
+            
                <div className="center-interests">
                <div className="product-card-wrap">
                    {event.amazonCards.length > 0 ? event.amazonCards :<div> <LinearProgress /> </div>}

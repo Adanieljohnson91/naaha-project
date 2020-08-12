@@ -13,13 +13,12 @@ const JumbotronEvent = (props) => {
  
     return (
         <>
-            <div className="text">
-                Copy
+          
   <div className="jumbotron-custom background-image-jumbo" >
 
                   
                     <img className="image-size" src="https://g.foolcdn.com/editorial/images/578933/square01.jpg" alt />
-                    <h1 className="display-4">{props.name}</h1>
+                    <h1 className="display-4 text">{props.name}</h1>
                     
                     <hr className="my-4" />
                     <h2>
@@ -27,7 +26,7 @@ const JumbotronEvent = (props) => {
              <ModalEventEditButton form={<EditEventForm event={props.event} getEvent={props.getEvent} />}/><Link className="btn btn-danger" to="/events" onClick={onDelete}>Delete</Link>
                 </div>
                 
-            </div>
+        
         </>
     )
 }

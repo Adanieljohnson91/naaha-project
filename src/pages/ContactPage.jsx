@@ -120,7 +120,7 @@ const ContactPage = (props) => {
 
     return (
         <>
-            <div className="page-center body">
+            <div className="body">
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader /></ToolBarZero>
                 <JumbotronContact
                     contact={contacts.contacts}
