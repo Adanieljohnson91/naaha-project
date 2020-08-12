@@ -36,10 +36,6 @@
 }
 .card-custom {
     height: auto;
-    margin-top: -1em;
-}
-.card-custom {
-   margin-top:2em;
 }
 .center-card {
     
@@ -55,4 +51,10 @@
 }
 .dnd-img:hover {
     box-shadow: rgb(96, 224, 64) 0px 0px 80px;
+}
+.cus-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: black 0px 0px 5px;
+    color: black;
 }

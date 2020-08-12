@@ -5,8 +5,7 @@ const Jumbotron = (props) => {
 
     return (
         <>
-            <div className="text">
-                Copy
+        
   <div className="jumbotron-custom background-image-jumbo" >
                  
     <h1 className="display-4">{props.name}</h1>
@@ -17,7 +16,7 @@ const Jumbotron = (props) => {
                         {props.purpose}</p>
                     
                 </div>
-            </div>
+           
         </>
     )
 }
