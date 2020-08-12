@@ -48,11 +48,12 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 const useStyle = makeStyles((theme) => ({
     root: {
       '& > *': {
-        marginTop: "5px",
-        marginLeft: "53%",
+        display: "flex",
+        justifyContent: "center",
+        margin: "auto",
         width: "100px",
         height:"110px",
-        backgroundImage: "linear-gradient(to right, black , lightBlue)",
+        backgroundImage: "linear-gradient(to right, black , limeGreen)",
         borderRadius: "50%",
         boxShadow:"0px 0px 20px"
       },
@@ -84,7 +85,7 @@ const ModalAddButton = (props) => {
         <div>
          <div className={classe.root}> 
      <button color="#e8f5e9" onClick={handleOpen} aria-label="add">
-        <AddIcon />
+       
       </button>
       </div> 
       <Modal

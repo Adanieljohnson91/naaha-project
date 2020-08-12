@@ -48,7 +48,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
    minWidth: 500,
-   width: "95%",
+   width: "99%",
     position: 'absolute',
     minHeight: 500,
     maxHeight:500,

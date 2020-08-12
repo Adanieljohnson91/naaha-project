@@ -129,6 +129,7 @@ const ContactPage = (props) => {
                     lastname={contacts.contacts.lastname}
                     address={contacts.contacts.address}
                     phone={contacts.contacts.phone}
+                    image={contacts.contacts.image}
                     link0="/dashboard"
                     name0="Dashboard"
                     link1="/events"
