@@ -50,7 +50,6 @@ const ContactPage = (props) => {
     const getContact = async () => {
         let res = await contactServices.getContact(props.match.params.id);
         let res2 = await interestService.getInterests(props.match.params.id)
-        console.log("RES2", res2)
         await setContact((prevState) => {
             return {
                 ...prevState,
@@ -88,7 +87,6 @@ const ContactPage = (props) => {
                 amazonCards: res.search_results.map(product => <AmazonProductCards key={product.position} product={product} />)
             }
         })
-        console.log("ENDED")
     }
     const pagination = (e, page) => {
         setContact((prevState) => {

@@ -5,7 +5,6 @@ import "./cards.css"
 
 const ContactCard = (props) =>{
     const handleDelete = async () =>{
-        console.log("deleting", props.contact.id)
       await contactService.deleteContact(props.contact.id)
         props.getContacts();
     }

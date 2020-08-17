@@ -48,10 +48,8 @@ function RegisterForm(props) {
   })
   const noAccount = (e) =>{
       props.switch();
-    console.log(e.target, "Clicked")
   }
   const register = async (e) =>{
-    console.log("Registering")
     let newUser = {...form};
     delete newUser.confirmpassword;
     await Register.registerUser(newUser);

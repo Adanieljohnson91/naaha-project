@@ -38,10 +38,8 @@ const Buckets = () => {
                  let arr = await eventsSorter(result[i], ev);
                 result[i].events = arr;
         }
-        console.log(result, "RESULT")
         result = await checkEvents(result)
         j = result.length - 1;
-        console.log(result, "result")
         if (result.length === 0) return;
         setState((prevState) => {
             return {
@@ -96,7 +94,6 @@ const Buckets = () => {
         if(contact.setup === true) return;
         let obj = await createEventsObject(contact)
         let arr = []
-        console.log(obj, events)
         for (let i = 0; i < events.length; i++) {
             if (obj[events[i].name] === undefined) {
                 arr.push(events[i])
@@ -112,10 +109,8 @@ const Buckets = () => {
             if (prevState.contacts.events === undefined) {
                 if (prevState.events.length <= 1) {
                     j--;
-                    console.log(prevState)
                     prevState.contacts.pop();
                     if (prevState.contacts.length === 0)return;
-                    console.log("Zero Events");
                     return {
                         ...prevState,
                         contacts: prevState.contacts,
@@ -125,7 +120,6 @@ const Buckets = () => {
                         currentEvent: prevState.contacts[j]
                     }
                 } else {
-                    console.log(prevState, "EVENTS", prevState.events)
                     prevState.events.pop();
                     return {
                         ...prevState,

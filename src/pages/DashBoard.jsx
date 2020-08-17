@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Authentication from "../auth/Authenticaion";
 import UserHeader from "../components/Header/UserHeader"
-import { Container } from '@material-ui/core'
 import { withStyles } from "@material-ui/core";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import "./pages.css/pages.css"
@@ -13,7 +12,6 @@ import EventCard from "../components/Cards/DashBoardEventCard";
 import contactService from '../services/contactService';
 import ContactCard from "../components/Cards/DashBoardContactCard";
 import "../components/Organizer/organizer.css"
-import Chart from "../components/Chart/Chart";
 import Chart2 from "../components/Chart/Chart2";
 //import ScheduleButton from '../components/TestComponents/ButtonSchedule';
 
@@ -51,10 +49,8 @@ const DashBoard = () => {
         if (events === undefined) return
         let [thirty, sixty, ninety] = [[], [], []];
         let date = new Date().toISOString().split('T')[0];
-        console.log(date, "DATE")
         for (let i = 0; i < events.length; i++) {
-            let diff = Math.round((new Date(events[i].date) - new Date(date)) / (1000 * 60 * 60 * 24))
-            console.log(diff, "DIFFFFF")
+            let diff = Math.abs(Math.round((new Date(events[i].date) - new Date(date)) / (1000 * 60 * 60 * 24)))
             if (diff < 90 && diff > 60) {
                 ninety.push(events[i])
             } else if (diff < 60 && diff > 30) {
@@ -63,12 +59,10 @@ const DashBoard = () => {
                 thirty.push(events[i])
             }
         }
-        console.log([thirty, sixty, ninety], "Thirty Sixty Ninety")
         return [thirty, sixty, ninety]
     }
     const getContacts = async () => {
         let res = await contactService.getContacts(id);
-        console.log(res, "RESSSSS")
         if (res === undefined) return;
         setState((prevState) => {
             return {
@@ -81,18 +75,6 @@ const DashBoard = () => {
         getEvents();
         getContacts();
     }, [])
-
-    const ContainerStyle = withStyles({
-        root: {
-            width: "100",
-            display: "block",
-            boxSizing: "border-box",
-            marginRight: "auto",
-            marginLeft: "0",
-            paddingLeft: "16px",
-            paddingRight: "16px",
-        }
-    })(Container);
 
     const ToolBarZero = withStyles({
         margin: 0,
@@ -115,7 +97,7 @@ const DashBoard = () => {
                     name2="Buckets" />
                     <div className="chart-size">
                     <div className="buckets">
-                     {/* <Chart />  */}
+                  
                       <Chart2/>
                     </div></div>
                     

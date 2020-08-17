@@ -37,7 +37,6 @@ const EventPage = (props) => {
                 amazonCards: res.search_results.map(product => <AmazonProductCards key={product.position} product={product} />)
             }
         })
-        console.log("ENDED")
     }
     useEffect(()=>{
         getEvent();

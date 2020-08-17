@@ -6,7 +6,6 @@ const InterestSelect = (props) => {
     })
 
     const mapSelect = () => {
-        console.log(props.interests, "INTERESTS!!!")
         setOptions({
             options: props.interests.map(interest => {
                 return (

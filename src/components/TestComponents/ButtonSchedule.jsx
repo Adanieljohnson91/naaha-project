@@ -12,7 +12,6 @@ const ScheduleButton = (props) => {
     }
     const submitHandler = () => {
         twilio.scheduleTask(object)
-        console.log(object, "object")
     }
 
     return (

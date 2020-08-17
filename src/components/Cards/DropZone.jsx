@@ -18,8 +18,6 @@ const DropZone = (props) => {
     data.event = props.event;
     let res = await eventService.addEvent(state)
     await eventService.contactEvent({ contactId: Number(data.id), eventId: Number(res.id) })
-    console.log(data);
-    console.log("DROPPED")
     props.shift();
 
   }

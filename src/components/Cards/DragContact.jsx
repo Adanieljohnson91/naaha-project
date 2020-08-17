@@ -2,16 +2,8 @@ import React from 'react';
 
 const DragContact = (props) =>{
     const dragStartHandler = (e) =>{
-      console.log(props.contact);
-      //  e.preventDefault();
-        //move and link also valid drop effects
-       
-
         e.dataTransfer.setData("text", JSON.stringify(props.contact));
     }
-    
-
-
     return (
         <>
             <div  className=" drop-zone stack m-1" draggable={true} onDragStart={dragStartHandler} >

@@ -45,7 +45,6 @@ function LoginForm(props) {
   })
   const [potentialMatch, setPotentialMatch] = useState({});
   const noAccount = (e) =>{
-    console.log( "Clicked")
     props.switch();
   }
   const signIn = (e) =>{

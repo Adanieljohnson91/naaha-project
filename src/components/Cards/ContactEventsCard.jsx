@@ -5,7 +5,6 @@ import "./cards.css"
 
 const ContactEventCard = (props) => {
     const handleDelete = async () => {
-        console.log("deleting", props.event.id);
         await eventService.deleteEvent(props.event.id)
         props.getEvents();
     }
