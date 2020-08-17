@@ -162,10 +162,10 @@ const Buckets = () => {
 
                 <div className="buckets">
                     <div className="position stack">
-                        {state !== undefined ? state.drop : "NUll"}
+                        {state !== undefined ? state.drop : ""}
                     </div>
                     <div className="position stack2">
-                        {state !== undefined ? state.drag : "Null"}
+                        {state !== undefined ? state.drag : "Add More Contacts!"}
                     </div>
                 </div>
 
