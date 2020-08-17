@@ -50,12 +50,12 @@ const DashBoard = () => {
         let [thirty, sixty, ninety] = [[], [], []];
         let date = new Date().toISOString().split('T')[0];
         for (let i = 0; i < events.length; i++) {
-            let diff = Math.abs(Math.round((new Date(events[i].date) - new Date(date)) / (1000 * 60 * 60 * 24)))
+            let diff = Math.round((new Date(events[i].date) - new Date(date)) / (1000 * 60 * 60 * 24))
             if (diff < 90 && diff > 60) {
                 ninety.push(events[i])
             } else if (diff < 60 && diff > 30) {
                 sixty.push(events[i])
-            } else if (diff < 30) {
+            } else if (diff < 30 && diff > 0) {
                 thirty.push(events[i])
             }
         }

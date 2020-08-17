@@ -1,4 +1,4 @@
-  
+
 import React, { useState } from 'react';
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -40,103 +40,102 @@ const useStyles = makeStyles((theme) => ({
 
 function LoginForm(props) {
   const [form, setForm] = useState({
-    username:"",
-    password:""
+    username: "",
+    password: ""
   })
   const [potentialMatch, setPotentialMatch] = useState({});
-  const noAccount = (e) =>{
+  const noAccount = (e) => {
     props.switch();
   }
-  const signIn = (e) =>{
-    if(potentialMatch === undefined)return
-    if(potentialMatch.username === form.username && potentialMatch.password === form.password){
-    window.sessionStorage.setItem('credentials', JSON.stringify(potentialMatch))
-    props.history.push('/dashboard')
-    }else{
-      return 
+  const signIn = (e) => {
+    if (potentialMatch === undefined) return
+    if (potentialMatch.username === form.username && potentialMatch.password === form.password) {
+      window.sessionStorage.setItem('credentials', JSON.stringify(potentialMatch))
+      props.history.push('/dashboard')
+    } else {
+      return
     }
-    
+
   }
-  const handleChange = async (e) =>{
-    setForm({...form, [e.target.name]:e.target.value})
-    if(e.target.name === "username"){
+  const handleChange = async (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+    if (e.target.name === "username") {
       let users = await LoginService.searchUsers(form.username)
-   setPotentialMatch(users[0]);
+      setPotentialMatch(users[0]);
     }
   }
   const classes = useStyles()
   return (
     <>
-    
-  <Container component="main" maxWidth="xs" className="login_form_container">
-      <CssBaseline />
-      <div className="login_border">
-      <div className={classes.form}>
-      <div className="img-margin">
-        <img src={pic} alt=""/>
-        </div>
-        <Typography component="h1" variant="h5">
-          Sign in
+      <Container component="main" maxWidth="xs" className="login_form_container">
+        <CssBaseline />
+        <div className="login_border">
+          <div className={classes.form}>
+            <div className="img-margin">
+              <img src={pic} alt="" />
+            </div>
+            <Typography component="h1" variant="h5">
+              Sign in
         </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            onChange={handleChange}
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="button"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={signIn}
-            className={classes.submit}
-          >
-            Sign In
+            <form className={classes.form} noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                value={form.username}
+                onChange={handleChange}
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                onChange={handleChange}
+                autoComplete="current-password"
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={signIn}
+                className={classes.submit}
+              >
+                Sign In
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
               </Link>
-            </Grid>
-            <Grid item>
-              <Link onClick={noAccount} variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      </div>
-      <Box mt={8}>
-       
-      </Box>
-    </Container>
+                </Grid>
+                <Grid item>
+                  <Link onClick={noAccount} variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+        </div>
+        <Box mt={8}>
+
+        </Box>
+      </Container>
   )
     </>
   );
