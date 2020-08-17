@@ -37,7 +37,6 @@ const EventsPage = () => {
 
                 <Jumbotron
                     name="Events"
-                    user="Anthony"
                     purpose="Add or Edit your events below"
                     link0="/dashboard"
                     name0="Dashboard"

@@ -38,7 +38,6 @@ const Contacts = () => {
                 <ToolBarZero id="back-to-top-anchor">   <UserHeader/></ToolBarZero>
                 <Jumbotron 
                 name="Contacts" 
-                user="Anthony"
                 purpose="Add or Edit your contacts below"  
                 link0="/dashboard"
                 name0="Dashboard"

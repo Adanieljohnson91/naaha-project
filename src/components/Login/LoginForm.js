@@ -53,6 +53,7 @@ function LoginForm(props) {
       window.sessionStorage.setItem('credentials', JSON.stringify(potentialMatch))
       props.history.push('/dashboard')
     } else {
+      alert('Wrong password')
       return
     }
 
